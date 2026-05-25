@@ -28,7 +28,7 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
 
-                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'b
+                    bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
 
                     bat 'docker push %IMAGE_NAME%'
                 }
