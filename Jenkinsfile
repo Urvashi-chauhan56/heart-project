@@ -9,7 +9,8 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Urvashi-chauhan56/heart-project.git'
+                git branch: 'main',
+                url: 'https://github.com/Urvashi-chauhan56/heart-project.git'
             }
         }
 
