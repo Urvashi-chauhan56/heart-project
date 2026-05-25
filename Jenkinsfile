@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        IMAGE_NAME = "urvashichauhan56/heart-project"
-    }
-
     stages {
 
         stage('Clone Repository') {
@@ -16,26 +12,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t %IMAGE_NAME% .'
-            }
-        }
-
-        stage('Docker Login') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-
-                   bat """docker login -u %DOCKER_USER% -p %DOCKER_PASS%"""
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                bat 'docker push %IMAGE_NAME%'
+                bat 'docker build -t heart-project .'
             }
         }
     }
