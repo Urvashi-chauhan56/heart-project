@@ -4,6 +4,5 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.txt
-
+RUN pip install --default-timeout=100 -r requirements.txt
 CMD ["python", "heart_project.py"]
